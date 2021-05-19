@@ -149,7 +149,9 @@
     }
 
     function cartPreview() {
-      document.getElementById('cart_preview').classList.toggle('show');
+      if (smallSize || mediumSize || largeSize > 0) {
+        document.getElementById('cart_preview').classList.toggle('show');
+      }
       if (smallSize > 0) {
         document.getElementById('small').classList.toggle('show');
         document.getElementById('small_quatity').innerHTML = `${smallSize} x `;
