@@ -49,4 +49,16 @@
       </summary>
     </main>
   </body>
+  <script>
+    function displaySize(clicked_id) {
+      document.getElementById('selected_size').innerHTML = clicked_id;
+      resetToggle();
+      document.getElementById(clicked_id).classList.toggle('selected');
+    }
+    function resetToggle() {
+      document.getElementById('S').classList.remove('selected');
+      document.getElementById('M').classList.remove('selected');
+      document.getElementById('L').classList.remove('selected');
+    }
+  </script>
 </html>
