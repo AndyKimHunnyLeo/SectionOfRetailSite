@@ -17,10 +17,13 @@ body {
 }
 .cart {
   margin: 0px;
-  margin-right: 15%;
+  margin-right: 0%;
   color: #888888;
   cursor: pointer;
   font-size: 13px;
+}
+#quantity {
+  margin-right: 15%;
 }
 
 main {

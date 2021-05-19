@@ -9,7 +9,8 @@
   </head>
   <body>
     <header class="header">
-      <p class="cart">My Cart (4)</p>
+      <p class="cart">My Cart</p>
+      <p class="cart" id="quantity">(0)</p>
     </header>
     <main>
       <img
@@ -53,6 +54,7 @@
   </body>
   <script>
     let isSizeSelected = false;
+    let quantity = 0;
     function displaySize(clicked_id) {
       document.getElementById('selected_size').innerHTML = clicked_id;
       resetToggle();
@@ -69,7 +71,10 @@
     function addToCart() {
       if (isSizeSelected === false) {
         alert('Size is not selected');
+        return;
       }
+      document.getElementById('quantity').innerHTML = ` (${quantity + 1})`;
+      quantity++;
     }
   </script>
 </html>
