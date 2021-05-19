@@ -11,5 +11,42 @@
     <header class="header">
       <p class="cart">My Cart (4)</p>
     </header>
+    <main>
+      <img
+        src="Resource/classic-tee.jpg"
+        alt="classic-tee"
+        class="classic_tee"
+      />
+      <summary class="details">
+        <h3 class="product_name">Classic Tee</h3>
+        <hr />
+        <p class="price">$75</p>
+        <hr />
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
+          molestias vel voluptatum modi in? Iure, eos vitae libero quia ipsam
+          asperiores corporis quisquam odio quas? Dolore similique harum
+          corrupti eum!
+        </p>
+        <div class="size_container">
+          <p class="text">SIZE</p>
+          <p class="required_star">*</p>
+          <p id="selected_size" class="text"></p>
+        </div>
+
+        <container class="size_button_container">
+          <button class="size_button" id="S" onclick="displaySize(this.id)">
+            S
+          </button>
+          <button class="size_button" id="M" onclick="displaySize(this.id)">
+            M
+          </button>
+          <button class="size_button" id="L" onclick="displaySize(this.id)">
+            L
+          </button>
+        </container>
+        <button class="add_to_cart_button">ADD TO CART</button>
+      </summary>
+    </main>
   </body>
 </html>
