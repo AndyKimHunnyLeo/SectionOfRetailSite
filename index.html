@@ -45,20 +45,31 @@
             L
           </button>
         </container>
-        <button class="add_to_cart_button">ADD TO CART</button>
+        <button class="add_to_cart_button" onclick="addToCart()">
+          ADD TO CART
+        </button>
       </summary>
     </main>
   </body>
   <script>
+    let isSizeSelected = false;
     function displaySize(clicked_id) {
       document.getElementById('selected_size').innerHTML = clicked_id;
       resetToggle();
       document.getElementById(clicked_id).classList.toggle('selected');
+      isSizeSelected = true;
     }
+
     function resetToggle() {
       document.getElementById('S').classList.remove('selected');
       document.getElementById('M').classList.remove('selected');
       document.getElementById('L').classList.remove('selected');
+    }
+
+    function addToCart() {
+      if (isSizeSelected === false) {
+        alert('Size is not selected');
+      }
     }
   </script>
 </html>
