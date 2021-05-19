@@ -15,17 +15,69 @@ body {
   justify-content: flex-end;
   align-items: center;
 }
+
 .cart {
   margin: 0px;
   margin-right: 0%;
-  color: #888888;
   cursor: pointer;
+  color: #888888;
   font-size: 13px;
+}
+#cart_icon {
+  display: none;
 }
 #quantity {
   margin-right: 15%;
 }
+.preview_price_container {
+  display: flex;
+}
+/* ====== */
+.cart_preview {
+  position: absolute;
+  right: 15%;
+  top: 33px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 0.5px solid rgb(104, 104, 124);
+  flex-direction: column;
+  display: none;
+}
 
+.cart_preview_container {
+  display: flex;
+  width: 400px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 5%;
+  display: none;
+}
+.first_text {
+  margin-top: 0;
+}
+.classic_tee_preview {
+  width: 80px;
+  height: 110px;
+}
+.text_preview_container {
+  margin-left: 7%;
+}
+
+.preview_text {
+  color: black;
+  font-size: 13px;
+}
+.preview {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.show {
+  display: flex;
+}
+/* ======== */
 main {
   display: flex;
   margin-top: 2%;
@@ -126,5 +178,16 @@ hr {
   }
   .details {
     width: 100%;
+  }
+  #my_cart {
+    display: none;
+  }
+  #cart_icon {
+    display: block;
+    color: #888888;
+    font-size: 13px;
+  }
+  .cart_preview_container {
+    width: 300px;
   }
 }

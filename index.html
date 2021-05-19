@@ -5,13 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
     <title>Document</title>
   </head>
   <body>
     <header class="header">
-      <p class="cart">My Cart</p>
-      <p class="cart" id="quantity">(0)</p>
+      <p class="cart" id="my_cart" onclick="cartPreview()">My Cart</p>
+      <i
+        class="fas fa-shopping-cart"
+        id="cart_icon"
+        onclick="cartPreview()"
+      ></i>
+      <p class="cart" id="quantity" onclick="cartPreview()">(0)</p>
+
+      <section class="cart_preview" id="cart_preview">
+        <div class="cart_preview_container" id="small">
+          <img
+            src="Resource/classic-tee.jpg"
+            alt="classic-tee"
+            class="classic_tee_preview"
+          />
+          <div class="text_preview_container">
+            <p class="preview_text first_text">Classic Tee</p>
+            <div class="preview_price_container">
+              <p class="preview_text" id="small_quatity"></p>
+              <p class="preview_text preview">$75</p>
+            </div>
+            <p class="preview_text">Size: S</p>
+          </div>
+        </div>
+
+        <div class="cart_preview_container" id="medium">
+          <img
+            src="Resource/classic-tee.jpg"
+            alt="classic-tee"
+            class="classic_tee_preview"
+          />
+          <div class="text_preview_container">
+            <p class="preview_text first_text">Classic Tee</p>
+            <div class="preview_price_container">
+              <p class="preview_text" id="medium_quatity"></p>
+              <p class="preview_text preview">$75</p>
+            </div>
+            <p class="preview_text">Size: M</p>
+          </div>
+        </div>
+
+        <div class="cart_preview_container" id="large">
+          <img
+            src="Resource/classic-tee.jpg"
+            alt="classic-tee"
+            class="classic_tee_preview"
+          />
+          <div class="text_preview_container">
+            <p class="preview_text first_text">Classic Tee</p>
+            <div class="preview_price_container">
+              <p class="preview_text" id="large_quatity"></p>
+              <p class="preview_text preview">$75</p>
+            </div>
+            <p class="preview_text">Size: L</p>
+          </div>
+        </div>
+      </section>
     </header>
+
     <main>
       <img
         src="Resource/classic-tee.jpg"
@@ -53,13 +113,16 @@
     </main>
   </body>
   <script>
-    let isSizeSelected = false;
     let quantity = 0;
+    let smallSize = 0;
+    let mediumSize = 0;
+    let largeSize = 0;
+    let chosenSize = null;
     function displaySize(clicked_id) {
       document.getElementById('selected_size').innerHTML = clicked_id;
       resetToggle();
       document.getElementById(clicked_id).classList.toggle('selected');
-      isSizeSelected = true;
+      chosenSize = clicked_id;
     }
 
     function resetToggle() {
@@ -69,12 +132,39 @@
     }
 
     function addToCart() {
-      if (isSizeSelected === false) {
+      if (chosenSize === null) {
         alert('Size is not selected');
         return;
       }
       document.getElementById('quantity').innerHTML = ` (${quantity + 1})`;
       quantity++;
+      console.log(chosenSize);
+      if (chosenSize === 'S') {
+        smallSize++;
+      } else if (chosenSize === 'M') {
+        mediumSize++;
+      } else if (chosenSize === 'L') {
+        largeSize++;
+      }
+    }
+
+    function cartPreview() {
+      document.getElementById('cart_preview').classList.toggle('show');
+      if (smallSize > 0) {
+        document.getElementById('small').classList.toggle('show');
+        document.getElementById('small_quatity').innerHTML = `${smallSize} x `;
+      }
+      if (mediumSize > 0) {
+        document.getElementById('medium').classList.toggle('show');
+
+        document.getElementById(
+          'medium_quatity'
+        ).innerHTML = `${mediumSize} x `;
+      }
+      if (largeSize > 0) {
+        document.getElementById('large').classList.toggle('show');
+        document.getElementById('large_quatity').innerHTML = `${largeSize} x `;
+      }
     }
   </script>
 </html>
